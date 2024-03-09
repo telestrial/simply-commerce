@@ -4,7 +4,6 @@ import './globals.css';
 
 import Header from './_components/Header';
 import Footer from './_components/Footer';
-import Menu from './_components/Menu';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,10 +20,11 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <Header />
-        <Menu />
-        {children}
-        <Footer />
+        <div className='flex flex-col h-screen justify-between'>
+          <Header />
+          <main className='mb-auto overflow-y-auto'>{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
