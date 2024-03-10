@@ -45,7 +45,7 @@ export default function Header() {
       </div>
       <div className='navbar-center'>
         <div className='flex-1'>
-          <a className='btn btn-ghost text-xl'>tinyCommerce</a>
+          <a className='btn btn-ghost text-xl'>Simply Commerce</a>
         </div>
       </div>
       <div className='navbar-end'>
