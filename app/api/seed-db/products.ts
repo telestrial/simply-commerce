@@ -1,1 +1,5 @@
-export const products = [{}];
+const products = [{}];
+
+export function postgresProductInsert() {
+  return ``;
+}
