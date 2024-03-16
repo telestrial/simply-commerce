@@ -5,7 +5,7 @@ import { postgresProductInsertStatement } from './products';
 
 export async function GET(request: Request) {
   try {
-    // const dropResult = await sql`DROP TABLE products;`;
+    const dropResult = await sql`DROP TABLE products;`;
     const createResult =
       await sql`CREATE TABLE products ( id integer, name text, brand text, description text, price NUMERIC(6, 2));`;
     const insertResult = await sql`${postgresProductInsertStatement()}`;
