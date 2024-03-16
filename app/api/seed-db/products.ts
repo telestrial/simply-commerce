@@ -416,5 +416,5 @@ export function postgresProductInsertStatement() {
     valuesStatement += `(${product.id}, ${product.name}, ${product.brand}, ${product.description}, ${product.price})`;
   }
 
-  return `INSERT INTO Products (id, name, brand, description, price) VALUES ${valuesStatement};`;
+  return `INSERT INTO products (id, name, brand, description, price) VALUES ${valuesStatement};`;
 }
