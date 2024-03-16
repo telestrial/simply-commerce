@@ -10,7 +10,7 @@ export async function GET(request: Request) {
       await sql`CREATE TABLE products ( id integer, name text, brand text, description text, price NUMERIC(6, 2));`;
     const insertResult = await sql`${postgresProductInsertStatement()}`;
     return NextResponse.json(
-      { create: createResult, insert: insertResult },
+      { drop: dropResult, create: createResult, insert: insertResult },
       { status: 200 }
     );
   } catch (error) {
