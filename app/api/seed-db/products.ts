@@ -413,7 +413,7 @@ export function postgresProductInsertStatement() {
   let valuesStatement = '';
 
   for (let product of products) {
-    valuesStatement += `(${product.id}, ${product.name}, ${product.brand}, ${product.description}, ${product.price}),`;
+    valuesStatement += `(${product.id}, "${product.name}", "${product.brand}", "${product.description}", ${product.price}),`;
   }
 
   // Slice to remove the last comma
