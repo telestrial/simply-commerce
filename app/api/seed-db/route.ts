@@ -8,9 +8,18 @@ export async function GET(request: Request) {
     const dropResult = await sql`DROP TABLE products;`;
     const createResult =
       await sql`CREATE TABLE products ( productID integer, name text, brand text, description text, price NUMERIC(6, 2));`;
-    const insertResult = await sql`${postgresProductInsertStatement()}`;
+
+    const productPostgresSQLValues = postgresProductInsertStatement();
+
+    const insertResults = [];
+    for (let value of productPostgresSQLValues) {
+      const result =
+        await sql`INSERT INTO products (productID, name, brand, description, price) VALUES ${value}`;
+      insertResults.push(result);
+    }
+
     return NextResponse.json(
-      { drop: dropResult, create: createResult, insert: insertResult },
+      { drop: dropResult, create: createResult, insertResults: insertResults },
       { status: 200 }
     );
   } catch (error) {
