@@ -19,7 +19,7 @@ export async function GET(request: Request) {
     // }
 
     const insertResults =
-      await sql`INSERT INTO products (productID, name, brand, description, price) VALUES (1, "test", "test", "test", 3.99)`;
+      await sql`INSERT INTO products VALUES (1, "test", "test", "test", 0003.99)`;
 
     return NextResponse.json(
       { drop: dropResult, create: createResult, insertResults: insertResults },
