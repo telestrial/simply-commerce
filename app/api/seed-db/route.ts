@@ -11,12 +11,15 @@ export async function GET(request: Request) {
 
     const productPostgresSQLValues = postgresProductInsertStatement();
 
-    const insertResults = [];
-    for (let value of productPostgresSQLValues) {
-      const result =
-        await sql`INSERT INTO products (productID, name, brand, description, price) VALUES ${value}`;
-      insertResults.push(result);
-    }
+    // const insertResults = [];
+    // for (let value of productPostgresSQLValues) {
+    //   const result =
+    //     await sql`INSERT INTO products (productID, name, brand, description, price) VALUES ${value}`;
+    //   insertResults.push(result);
+    // }
+
+    const insertResults =
+      await sql`INSERT INTO products (productID, name, brand, description, price) VALUES (1, "test", "test", "test", 3.99)`;
 
     return NextResponse.json(
       { drop: dropResult, create: createResult, insertResults: insertResults },
