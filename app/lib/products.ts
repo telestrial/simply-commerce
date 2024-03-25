@@ -408,16 +408,3 @@ export const products: Product[] = [
     price: 39.99,
   },
 ];
-
-export function postgresProductInsertStatement() {
-  let valuesStatement = [];
-
-  for (let product of products) {
-    valuesStatement.push(
-      `(${product.productID}, "${product.name}", "${product.brand}", "${product.description}", ${product.price})`
-    );
-  }
-
-  // Slice to remove the last comma
-  return valuesStatement;
-}
