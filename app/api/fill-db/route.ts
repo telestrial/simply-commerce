@@ -15,7 +15,7 @@ export async function GET(request: Request) {
     // }
 
     const insertResults =
-      await sql`INSERT INTO products VALUES (1, test, test, test, 3.99);`;
+      await sql`INSERT INTO products VALUES (1, 'test', 'test', 'test', 3.99);`;
 
     return NextResponse.json({ insertResults: insertResults }, { status: 200 });
   } catch (error) {
