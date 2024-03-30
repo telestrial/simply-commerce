@@ -1,6 +1,6 @@
 import { sql } from '@vercel/postgres';
 
-export async function seedDB() {
+export default async function seedDB() {
   const createTable = await sql`
     CREATE TABLE IF NOT EXISTS products (
       id SERIAL PRIMARY KEY,
