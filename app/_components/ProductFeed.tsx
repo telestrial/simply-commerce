@@ -21,7 +21,14 @@ export default async function ProductFeed() {
     }
   }
 
-  console.log(data);
+  const { rows: products } = data;
 
-  return <div>Hello</div>;
+  return (
+    <div>
+      {products.map((product) => {
+        console.log(product);
+        return <div key={product.id}>{product.name}</div>;
+      })}
+    </div>
+  );
 }
