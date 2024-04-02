@@ -7,7 +7,7 @@ export default async function ProductFeed() {
   let data;
 
   try {
-    data = await sql`SELECT * FROM products`;
+    data = await sql`SELECT * FROM products;`;
   } catch (e: any) {
     if (e.message.includes('relation "products" does not exist')) {
       console.log(
@@ -15,7 +15,7 @@ export default async function ProductFeed() {
       );
       // Table is not created yet
       await seedDB();
-      data = await sql`SELECT * FROM products`;
+      data = await sql`SELECT * FROM products;`;
     } else {
       throw e;
     }
