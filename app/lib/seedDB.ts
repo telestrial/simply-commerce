@@ -16,11 +16,11 @@ export default async function seedDB() {
   const users = await Promise.all([
     sql`
           INSERT INTO users (name, brand, description, price)
-          VALUES ('Product #1', 'Olsen', 'It's a cool thing', 10.99);
+          VALUES ('Product #1', 'Olsen', 'It is a cool thing', 0010.99);
       `,
     sql`
           INSERT INTO users (name, brand, description, price)
-          VALUES ('Product #2', 'Madelyn', 'It's another cool thing', 15.99);
+          VALUES ('Product #2', 'Madelyn', 'It is another cool thing', 0015.99);
       `,
   ]);
   console.log(`Seeded ${users.length} products`);
