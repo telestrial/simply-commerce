@@ -13,21 +13,21 @@ export default async function seedDB() {
 
   console.log(`Created "products" table`);
 
-  const users = await Promise.all([
+  const products = await Promise.all([
     sql`
-          INSERT INTO users (name, brand, description, price)
+          INSERT INTO products (name, brand, description, price)
           VALUES ('Product #1', 'Olsen', 'It is a cool thing', 0010.99);
       `,
     sql`
-          INSERT INTO users (name, brand, description, price)
+          INSERT INTO products (name, brand, description, price)
           VALUES ('Product #2', 'Madelyn', 'It is another cool thing', 0015.99);
       `,
   ]);
-  console.log(users);
-  console.log(`Seeded ${users.length} products`);
+  console.log(products);
+  console.log(`Seeded ${products.length} products`);
 
   return {
     createTable,
-    users,
+    products,
   };
 }
