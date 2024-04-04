@@ -23,6 +23,7 @@ export default async function seedDB() {
           VALUES ('Product #2', 'Madelyn', 'It is another cool thing', 0015.99);
       `,
   ]);
+  console.log(users);
   console.log(`Seeded ${users.length} products`);
 
   return {
