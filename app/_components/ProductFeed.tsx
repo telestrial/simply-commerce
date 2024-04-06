@@ -24,9 +24,8 @@ export default async function ProductFeed() {
   const { rows: products } = data;
 
   return (
-    <div>
+    <div className='grid grid-cols-3 gap-4'>
       {products.map((product) => {
-        console.log(product);
         return <div key={product.id}>{product.name}</div>;
       })}
     </div>

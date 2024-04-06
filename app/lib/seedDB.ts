@@ -11,8 +11,6 @@ export default async function seedDB() {
     );
     `;
 
-  console.log(`Created "products" table`);
-
   const products = await Promise.all([
     sql`
           INSERT INTO products (name, brand, description, price)
@@ -87,8 +85,6 @@ export default async function seedDB() {
           VALUES ('Product #18', 'Madelyn', 'You want this. You need this. We have this. You buy this.', 15.99);
       `,
   ]);
-  console.log(products);
-  console.log(`Seeded ${products.length} products`);
 
   return {
     createTable,
