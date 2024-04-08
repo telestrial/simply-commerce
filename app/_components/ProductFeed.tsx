@@ -24,29 +24,34 @@ export default async function ProductFeed() {
   const { rows: products } = data;
 
   return (
-    <div className='grid grid-cols-3 gap-4'>
-      {products.map((product) => {
-        return (
-          <div
-            key={product.id}
-            className='card card-compact w-96 bg-base-100 shadow-xl'
-          >
-            <figure>
-              <Image
-                src='https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg'
-                alt='Shoes'
-              />
-            </figure>
-            <div className='card-body'>
-              <h2 className='card-title'>{product.name}</h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
-              <div className='card-actions justify-end'>
-                <button className='btn btn-primary'>Buy Now</button>
+    <div className='grid grid-cols-4 gap-4'>
+      {products
+        .sort((a, b) => a.id - b.id)
+        .map((product) => {
+          return (
+            <div
+              key={product.id}
+              className='card card-compact w-96 bg-base-100 shadow-xl'
+            >
+              <figure>
+                <Image
+                  src={`/product-images/${product.id}.jpg`}
+                  alt='Shoes'
+                  width='300'
+                  height='150'
+                  objectFit='cover'
+                />
+              </figure>
+              <div className='card-body'>
+                <h2 className='card-title'>{product.name}</h2>
+                <p>{product.description}</p>
+                <div className='card-actions justify-end'>
+                  <button className='btn btn-primary'>Buy Now</button>
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 }
