@@ -25,7 +25,7 @@ export default async function ProductFeed() {
 
   return (
     <div className='flex w-100 justify-center'>
-      <div className='grid grid-cols-3 gap-10'>
+      <div className='grid grid-cols-3 gap-9'>
         {products
           .sort((a, b) => a.id - b.id)
           .map((product) => {
@@ -41,7 +41,6 @@ export default async function ProductFeed() {
                     layout='responsive'
                     width='250'
                     height='125'
-                    objectFit='fill'
                   />
                 </figure>
                 <div className='card-body'>
