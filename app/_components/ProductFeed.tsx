@@ -24,7 +24,7 @@ export default async function ProductFeed() {
   const { rows: products } = data;
 
   return (
-    <div className='flex w-100 justify-center'>
+    <div className='flex w-100 justify-center pt-10'>
       <div className='grid grid-cols-3 gap-9'>
         {products
           .sort((a, b) => a.id - b.id)
@@ -34,13 +34,11 @@ export default async function ProductFeed() {
                 key={product.id}
                 className='card card-compact w-96 bg-base-100 shadow-xl'
               >
-                <figure>
-                  <Image
+                <figure className='h-96'>
+                  <img
+                    className='object=cover'
                     src={`/product-images/${product.id}.jpg`}
                     alt={product.name}
-                    layout='responsive'
-                    width='250'
-                    height='125'
                   />
                 </figure>
                 <div className='card-body'>
