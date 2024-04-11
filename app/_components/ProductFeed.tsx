@@ -47,7 +47,7 @@ export default async function ProductFeed() {
                     <p className='align-center'>${product.price}</p>
                   </div>
                   <div className='card-actions justify-end'>
-                    <button className='btn btn-primary'>Buy Now</button>
+                    <button className='btn btn-primary'>Add to Cart</button>
                   </div>
                 </div>
               </div>
