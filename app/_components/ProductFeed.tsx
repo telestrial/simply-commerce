@@ -3,6 +3,8 @@ import { sql } from '@vercel/postgres';
 
 import seedDB from '../lib/seedDB';
 
+import AddToCartButton from './AddToCartButton';
+
 export default async function ProductFeed() {
   let data;
 
@@ -47,7 +49,7 @@ export default async function ProductFeed() {
                     <p className='align-center'>${product.price}</p>
                   </div>
                   <div className='card-actions justify-end'>
-                    <button className='btn btn-primary'>Add to Cart</button>
+                    <AddToCartButton productID={product.id} />
                   </div>
                 </div>
               </div>
