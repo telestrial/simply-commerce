@@ -37,10 +37,12 @@ export default async function ProductFeed() {
                 className='card card-compact w-96 bg-base-100 shadow-xl'
               >
                 <figure className='h-96'>
-                  <img
+                  <Image
                     className='object=cover'
                     src={`/product-images/${product.id}.jpg`}
                     alt={product.name}
+                    width={350}
+                    height={250}
                   />
                 </figure>
                 <div className='card-body'>
