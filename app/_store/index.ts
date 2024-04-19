@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { immer } from 'zustand/middleware/immer';
 
 export interface ShoppingCartState {
   shoppingCart: string[];
@@ -7,30 +8,32 @@ export interface ShoppingCartState {
   removeItemFromCart: (itemID: string) => void;
 }
 
-export const useShoppingCart = create<ShoppingCartState>()((set) => ({
-  shoppingCart: [],
-  resetShoppingCart: () =>
-    set(() => ({
-      shoppingCart: [],
-    })),
-  addItemToCart: (itemID) =>
-    set((state) => {
-      const modifiedShoppingCart = state.shoppingCart;
-      modifiedShoppingCart.push(itemID);
-      return {
-        shoppingCart: modifiedShoppingCart,
-      };
-    }),
-  removeItemFromCart: (itemID) =>
-    set((state) => {
-      const modifiedShoppingCart = state.shoppingCart;
-      const position = modifiedShoppingCart.indexOf(itemID);
-      modifiedShoppingCart.splice(position, 1);
-      return {
-        shoppingCart: modifiedShoppingCart,
-      };
-    }),
-}));
+export const useShoppingCart = create<ShoppingCartState>()(
+  immer((set) => ({
+    shoppingCart: [],
+    resetShoppingCart: () =>
+      set(() => ({
+        shoppingCart: [],
+      })),
+    addItemToCart: (itemID) =>
+      set((state) => {
+        const modifiedShoppingCart = state.shoppingCart;
+        modifiedShoppingCart.push(itemID);
+        return {
+          shoppingCart: modifiedShoppingCart,
+        };
+      }),
+    removeItemFromCart: (itemID) =>
+      set((state) => {
+        const modifiedShoppingCart = state.shoppingCart;
+        const position = modifiedShoppingCart.indexOf(itemID);
+        modifiedShoppingCart.splice(position, 1);
+        return {
+          shoppingCart: modifiedShoppingCart,
+        };
+      }),
+  }))
+);
 
 // import { create } from 'zustand'
 

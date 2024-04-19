@@ -5,6 +5,8 @@ import { useShoppingCart } from '../_store';
 export default function ShoppingCartIndicator() {
   const shoppingCart = useShoppingCart((state) => state.shoppingCart);
 
+  console.log(shoppingCart);
+
   return (
     <div tabIndex={0} role='button' className='btn btn-ghost btn-circle'>
       <div className='indicator'>
