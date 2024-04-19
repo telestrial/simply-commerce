@@ -17,7 +17,7 @@ export const useShoppingCart = create<ShoppingCartState>()(
       })),
     addItemToCart: (itemID) =>
       set((state) => {
-        const modifiedShoppingCart = state.shoppingCart;
+        const modifiedShoppingCart = [...state.shoppingCart];
         modifiedShoppingCart.push(itemID);
         return {
           shoppingCart: modifiedShoppingCart,
@@ -25,7 +25,7 @@ export const useShoppingCart = create<ShoppingCartState>()(
       }),
     removeItemFromCart: (itemID) =>
       set((state) => {
-        const modifiedShoppingCart = state.shoppingCart;
+        const modifiedShoppingCart = [...state.shoppingCart];
         const position = modifiedShoppingCart.indexOf(itemID);
         modifiedShoppingCart.splice(position, 1);
         return {
