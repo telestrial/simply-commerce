@@ -1,15 +1,3 @@
-# Tiny-Commerce
+# Simply-Commerce
 
-A simple ecommerce app.
-
-To run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+A minimalistic e-commerce app focusing on un-complicated data structures and UI.
