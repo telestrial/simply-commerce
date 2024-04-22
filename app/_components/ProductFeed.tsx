@@ -5,6 +5,8 @@ import seedDB from '../lib/seedDB';
 
 import AddToCartButton from './AddToCartButton';
 
+import { Product } from '../_types/product';
+
 export default async function ProductFeed() {
   let data;
 
@@ -51,7 +53,7 @@ export default async function ProductFeed() {
                     <p className='align-center'>${product.price}</p>
                   </div>
                   <div className='card-actions justify-end'>
-                    <AddToCartButton productID={product.id} />
+                    <AddToCartButton product={product as Product} />
                   </div>
                 </div>
               </div>

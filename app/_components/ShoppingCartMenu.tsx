@@ -15,8 +15,8 @@ export default function ShoppingCartMenu() {
             ? `1 Item`
             : `${shoppingCart.length} Items`}
         </span>
-        {shoppingCart.map((shoppingCartItem) => (
-          <div key={shoppingCartItem}>{shoppingCartItem}</div>
+        {shoppingCart.map((product) => (
+          <div key={product.id}>{product.name}</div>
         ))}
         <span className='text-info'>Subtotal: $999</span>
         <div className='card-actions'>

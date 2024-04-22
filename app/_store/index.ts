@@ -1,11 +1,13 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
+import { Product } from '../_types/product';
+
 export interface ShoppingCartState {
-  shoppingCart: string[];
+  shoppingCart: Product[];
   resetShoppingCart: () => void;
-  addItemToCart: (itemID: string) => void;
-  removeItemFromCart: (itemID: string) => void;
+  addItemToCart: (product: Product) => void;
+  removeItemFromCart: (product: Product) => void;
 }
 
 export const useShoppingCart = create<ShoppingCartState>()(
@@ -15,18 +17,18 @@ export const useShoppingCart = create<ShoppingCartState>()(
       set(() => ({
         shoppingCart: [],
       })),
-    addItemToCart: (itemID) =>
+    addItemToCart: (product) =>
       set((state) => {
         const modifiedShoppingCart = [...state.shoppingCart];
-        modifiedShoppingCart.push(itemID);
+        modifiedShoppingCart.push(product);
         return {
           shoppingCart: modifiedShoppingCart,
         };
       }),
-    removeItemFromCart: (itemID) =>
+    removeItemFromCart: (product) =>
       set((state) => {
         const modifiedShoppingCart = [...state.shoppingCart];
-        const position = modifiedShoppingCart.indexOf(itemID);
+        const position = modifiedShoppingCart.indexOf(product);
         modifiedShoppingCart.splice(position, 1);
         return {
           shoppingCart: modifiedShoppingCart,

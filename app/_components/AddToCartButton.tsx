@@ -2,12 +2,14 @@
 
 import { useShoppingCart } from '../_store';
 
+import { Product } from '../_types/product';
+
 interface AddToCartButtonProps {
-  productID: string;
+  product: Product;
 }
 
 export default function AddToCartButton(props: AddToCartButtonProps) {
-  const { productID } = props;
+  const { product } = props;
 
   const addToCart = useShoppingCart((state) => state.addItemToCart);
 
@@ -15,7 +17,7 @@ export default function AddToCartButton(props: AddToCartButtonProps) {
     <button
       className='btn btn-primary'
       onClick={() => {
-        addToCart(productID);
+        addToCart(product);
       }}
     >
       Add to Cart
