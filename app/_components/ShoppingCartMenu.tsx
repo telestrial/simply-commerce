@@ -15,6 +15,9 @@ export default function ShoppingCartMenu() {
             ? `1 Item`
             : `${shoppingCart.length} Items`}
         </span>
+        {shoppingCart.map((shoppingCartItem) => (
+          <div key={shoppingCartItem}>{shoppingCartItem}</div>
+        ))}
         <span className='text-info'>Subtotal: $999</span>
         <div className='card-actions'>
           <button className='btn btn-primary btn-block'>View cart</button>
