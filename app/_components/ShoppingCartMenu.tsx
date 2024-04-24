@@ -3,7 +3,15 @@
 import { useShoppingCart } from '../_store';
 
 export default function ShoppingCartMenu() {
-  const shoppingCart = useShoppingCart((state) => state.shoppingCart);
+  const { shoppingCart, removeItemFromCart } = useShoppingCart(
+    (state) => state
+  );
+
+  const total = shoppingCart.reduce(
+    (prev, curr) => prev + parseFloat(curr.price),
+    0
+  );
+
   return (
     <div
       tabIndex={0}
@@ -15,10 +23,20 @@ export default function ShoppingCartMenu() {
             ? `1 Item`
             : `${shoppingCart.length} Items`}
         </span>
-        {shoppingCart.map((product) => (
-          <div key={product.id}>{product.name}</div>
+        {shoppingCart.map((product, index) => (
+          <div key={index} className='flex'>
+            <span className='grow'>{product.name}</span>
+            <button
+              className='btn btn-xs btn-outline btn-error'
+              onClick={() => {
+                removeItemFromCart(product);
+              }}
+            >
+              x
+            </button>
+          </div>
         ))}
-        <span className='text-info'>Subtotal: $999</span>
+        <span className='text-info'>Subtotal: ${total}</span>
         <div className='card-actions'>
           <button className='btn btn-primary btn-block'>View cart</button>
         </div>
