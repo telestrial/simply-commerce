@@ -22,9 +22,9 @@ export default function ProductCard(props: ProductCardProps) {
         />
       </figure>
       <div className='card-body'>
-        <div className='flex'>
-          <h2 className='card-title'>{product.name}</h2>
-          <p className='align-center'>${product.price}</p>
+        <div className='flex items-center'>
+          <h2 className='text-lg font-bold grow'>{product.name}</h2>
+          <p className='text-right'>${product.price}</p>
         </div>
         <div className='card-actions justify-end'>
           <AddToCartButton product={product as Product} />
