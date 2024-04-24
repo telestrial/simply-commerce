@@ -17,6 +17,9 @@ export default function ProductCard(props: ProductCardProps) {
           className='object=cover'
           src={`/product-images/${product.id}.jpg`}
           alt={product.name}
+          // Remember: these values are not actually used literally, unless they can be. This
+          // works as a sort of desktop -> mobile aspect ratio. Aim high, but Image scales down
+          // as the space the image needs to occupy goes down.
           width={350}
           height={250}
         />
