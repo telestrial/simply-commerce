@@ -29,14 +29,14 @@ export default async function ProductFeed() {
 
   return (
     <div className='flex w-100 justify-center pt-10'>
-      <div className='grid grid-cols-3 gap-9'>
+      <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-9'>
         {products
           .sort((a, b) => a.id - b.id)
           .map((product) => {
             return (
               <div
                 key={product.id}
-                className='card card-compact w-96 bg-base-100 shadow-xl'
+                className='card card-compact w-80 bg-base-100 shadow-xl'
               >
                 <figure className='h-96'>
                   <Image
