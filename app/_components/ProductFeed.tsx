@@ -2,10 +2,9 @@ import Image from 'next/image';
 import { sql } from '@vercel/postgres';
 
 import seedDB from '../lib/seedDB';
-
-import AddToCartButton from './AddToCartButton';
-
 import { Product } from '../_types/product';
+
+import ProductCard from './ProductCard';
 
 export default async function ProductFeed() {
   let data;
@@ -34,29 +33,7 @@ export default async function ProductFeed() {
           .sort((a, b) => a.id - b.id)
           .map((product) => {
             return (
-              <div
-                key={product.id}
-                className='card card-compact w-80 bg-base-100 shadow-xl'
-              >
-                <figure className='h-96'>
-                  <Image
-                    className='object=cover'
-                    src={`/product-images/${product.id}.jpg`}
-                    alt={product.name}
-                    width={350}
-                    height={250}
-                  />
-                </figure>
-                <div className='card-body'>
-                  <div className='flex'>
-                    <h2 className='card-title'>{product.name}</h2>
-                    <p className='align-center'>${product.price}</p>
-                  </div>
-                  <div className='card-actions justify-end'>
-                    <AddToCartButton product={product as Product} />
-                  </div>
-                </div>
-              </div>
+              <ProductCard key={product.id} product={product as Product} />
             );
           })}
       </div>
