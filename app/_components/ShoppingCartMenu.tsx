@@ -26,14 +26,11 @@ export default function ShoppingCartMenu() {
         {shoppingCart.map((product, index) => (
           <div key={index} className='flex'>
             <span className='grow'>{product.name}</span>
-            <button
-              className='btn btn-xs btn-outline btn-error'
-              onClick={() => {
-                removeItemFromCart(product);
-              }}
-            >
-              x
-            </button>
+            <input
+              className='shrink w-10 border text-center'
+              type='number'
+              defaultValue={1}
+            />
           </div>
         ))}
         <span className='text-info'>Subtotal: ${total}</span>
