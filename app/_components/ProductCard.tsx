@@ -11,7 +11,7 @@ interface ProductCardProps {
 export default function ProductCard(props: ProductCardProps) {
   const { product } = props;
   return (
-    <div className='card card-compact w-80 bg-base-100 shadow-xl'>
+    <div className='card card-compact w-full md:w-80  bg-base-100 shadow-xl'>
       <figure className='h-96'>
         <Image
           className='object=cover'
