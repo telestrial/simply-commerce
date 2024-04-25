@@ -29,19 +29,6 @@ export default function ShoppingCartMenu() {
             ? `1 Item`
             : `${shoppingCart.length} Items`}
         </span>
-        {shoppingCart.map((product, index) => (
-          <div key={index} className='flex'>
-            <span className='grow'>{product.name}</span>
-            <input
-              className='shrink w-11 border text-center'
-              type='number'
-              defaultValue={1}
-              onChange={(event) => {
-                console.log(event);
-              }}
-            />
-          </div>
-        ))}
         <span className='text-info'>Subtotal: ${total}</span>
         <div className='card-actions'>
           <button
