@@ -1,8 +1,14 @@
 'use client';
 
+import { useRef } from 'react';
+
 import { useShoppingCart } from '../_store';
 
+import CheckoutModal from './CheckoutModal';
+
 export default function ShoppingCartMenu() {
+  const modalRef = useRef<HTMLDialogElement>(null);
+
   const { shoppingCart, removeItemFromCart } = useShoppingCart(
     (state) => state
   );
@@ -27,17 +33,30 @@ export default function ShoppingCartMenu() {
           <div key={index} className='flex'>
             <span className='grow'>{product.name}</span>
             <input
-              className='shrink w-10 border text-center'
+              className='shrink w-11 border text-center'
               type='number'
               defaultValue={1}
+              onChange={(event) => {
+                console.log(event);
+              }}
             />
           </div>
         ))}
         <span className='text-info'>Subtotal: ${total}</span>
         <div className='card-actions'>
-          <button className='btn btn-primary btn-block'>View cart</button>
+          <button
+            className='btn btn-primary btn-block'
+            onClick={() => {
+              if (modalRef.current) {
+                modalRef.current.showModal();
+              }
+            }}
+          >
+            View cart
+          </button>
         </div>
       </div>
+      <CheckoutModal modalRef={modalRef} />
     </div>
   );
 }
