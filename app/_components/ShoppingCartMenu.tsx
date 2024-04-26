@@ -43,7 +43,7 @@ export default function ShoppingCartMenu() {
           </button>
         </div>
       </div>
-      <CheckoutModal modalRef={modalRef} />
+      <CheckoutModal modalRef={modalRef} products={shoppingCart} />
     </div>
   );
 }

@@ -1,7 +1,9 @@
 import { LegacyRef } from 'react';
+import { Product } from '../_types/product';
 
 interface CheckoutModalProps {
   modalRef: LegacyRef<HTMLDialogElement>;
+  products: Product[];
 }
 
 export default function CheckoutModal(props: CheckoutModalProps) {
