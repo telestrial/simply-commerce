@@ -13,8 +13,13 @@ export default function ShoppingCartMenu() {
     (state) => state
   );
 
-  const total = shoppingCart.reduce(
+  const totalPrice = shoppingCart.reduce(
     (prev, curr) => prev + parseFloat(curr.price),
+    0
+  );
+
+  const totalNumberOfItems = shoppingCart.reduce(
+    (prev, curr) => prev + curr.numberOfItems,
     0
   );
 
@@ -25,11 +30,9 @@ export default function ShoppingCartMenu() {
     >
       <div className='card-body'>
         <span className='font-bold text-lg'>
-          {shoppingCart.length === 1
-            ? `1 Item`
-            : `${shoppingCart.length} Items`}
+          {totalNumberOfItems === 1 ? `1 Item` : `${shoppingCart.length} Items`}
         </span>
-        <span className='text-info'>Subtotal: ${total}</span>
+        <span className='text-info'>Subtotal: ${totalPrice}</span>
         <div className='card-actions'>
           <button
             className='btn btn-primary btn-block'
@@ -43,7 +46,7 @@ export default function ShoppingCartMenu() {
           </button>
         </div>
       </div>
-      <CheckoutModal modalRef={modalRef} products={shoppingCart} />
+      <CheckoutModal modalRef={modalRef} shoppingCartItems={shoppingCart} />
     </div>
   );
 }
