@@ -30,7 +30,7 @@ export default function ShoppingCartMenu() {
     >
       <div className='card-body'>
         <span className='font-bold text-lg'>
-          {totalNumberOfItems === 1 ? `1 Item` : `${shoppingCart.length} Items`}
+          {totalNumberOfItems === 1 ? `1 Item` : `${totalNumberOfItems} Items`}
         </span>
         <span className='text-info'>Subtotal: ${totalPrice}</span>
         <div className='card-actions'>
