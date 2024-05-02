@@ -1,15 +1,16 @@
 import { LegacyRef } from 'react';
 import { ShoppingCartItem } from '../_types/shoppingCartItem';
+import { useShoppingCart } from '../_store';
 
 interface CheckoutModalProps {
   modalRef: LegacyRef<HTMLDialogElement>;
-  shoppingCartItems: ShoppingCartItem[];
 }
 
 export default function CheckoutModal(props: CheckoutModalProps) {
-  const { modalRef, shoppingCartItems } = props;
+  const { modalRef } = props;
 
-  console.log(shoppingCartItems);
+  const shoppingCartItems = useShoppingCart((state) => state.shoppingCart);
+
   return (
     <dialog ref={modalRef} id='checkout_modal' className='modal'>
       <div className='modal-box'>

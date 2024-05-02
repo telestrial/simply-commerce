@@ -2,26 +2,15 @@
 
 import { useRef } from 'react';
 
-import { useShoppingCart } from '../_store';
+import { useTotalNumberOfItems, useShoppingCartTotal } from '../_store';
 
 import CheckoutModal from './CheckoutModal';
 
 export default function ShoppingCartMenu() {
   const modalRef = useRef<HTMLDialogElement>(null);
 
-  const { shoppingCart, removeItemFromCart } = useShoppingCart(
-    (state) => state
-  );
-
-  const totalPrice = shoppingCart.reduce(
-    (prev, curr) => prev + parseFloat(curr.price),
-    0
-  );
-
-  const totalNumberOfItems = shoppingCart.reduce(
-    (prev, curr) => prev + curr.numberOfItems,
-    0
-  );
+  const totalNumberOfItems = useTotalNumberOfItems();
+  const shoppingCartTotal = useShoppingCartTotal();
 
   return (
     <div
@@ -32,7 +21,7 @@ export default function ShoppingCartMenu() {
         <span className='font-bold text-lg'>
           {totalNumberOfItems === 1 ? `1 Item` : `${totalNumberOfItems} Items`}
         </span>
-        <span className='text-info'>Subtotal: ${totalPrice}</span>
+        <span className='text-info'>Subtotal: ${shoppingCartTotal}</span>
         <div className='card-actions'>
           <button
             className='btn btn-primary btn-block'
@@ -46,7 +35,7 @@ export default function ShoppingCartMenu() {
           </button>
         </div>
       </div>
-      <CheckoutModal modalRef={modalRef} shoppingCartItems={shoppingCart} />
+      <CheckoutModal modalRef={modalRef} />
     </div>
   );
 }
