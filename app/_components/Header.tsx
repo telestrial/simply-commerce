@@ -65,7 +65,7 @@ export default function Header() {
             <div className='w-10 rounded-full'>
               <Image
                 alt='Tailwind CSS Navbar component'
-                src=''
+                src='/user.JPG'
                 width={40}
                 height={40}
               />
