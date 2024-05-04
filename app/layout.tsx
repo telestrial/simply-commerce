@@ -5,7 +5,7 @@ import './globals.css';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 
-import Header from './_components/Header';
+import Header from './_components/header/Header';
 import Footer from './_components/Footer';
 
 const inter = Inter({ subsets: ['latin'] });

@@ -1,6 +1,6 @@
 'use client';
 
-import { useTotalNumberOfItems } from '../_store';
+import { useTotalNumberOfItems } from '../../_store';
 
 export default function ShoppingCartIndicator() {
   const totalNumberOfItems = useTotalNumberOfItems();

@@ -55,11 +55,9 @@ export default function Header() {
       </div>
       <div className='navbar-end'>
         <div className='dropdown dropdown-end'>
-          <ShoppingCartIndicator />
           <ShoppingCartMenu />
         </div>
         <div className='dropdown dropdown-end'>
-          <UserIndicator />
           <UserMenu />
         </div>
       </div>
