@@ -1,15 +1,12 @@
 'use client';
 
-import { useRef } from 'react';
+import Link from 'next/link';
 
 import { useTotalNumberOfItems, useShoppingCartTotal } from '../../_store';
 
-import CheckoutModal from '../CheckoutModal';
 import ShoppingCartIndicator from './ShoppingCartIndicator';
 
 export default function ShoppingCartMenu() {
-  const modalRef = useRef<HTMLDialogElement>(null);
-
   const totalNumberOfItems = useTotalNumberOfItems();
   const shoppingCartTotal = useShoppingCartTotal();
 
@@ -28,19 +25,11 @@ export default function ShoppingCartMenu() {
           </span>
           <span className='text-info'>Subtotal: ${shoppingCartTotal}</span>
           <div className='card-actions'>
-            <button
-              className='btn btn-primary btn-block'
-              onClick={() => {
-                if (modalRef.current) {
-                  modalRef.current.showModal();
-                }
-              }}
-            >
+            <Link href='/checkout' className='btn btn-primary btn-block'>
               View cart
-            </button>
+            </Link>
           </div>
         </div>
-        <CheckoutModal modalRef={modalRef} />
       </div>
     </>
   );

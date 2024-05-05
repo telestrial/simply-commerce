@@ -4,6 +4,7 @@ import ShoppingCartIndicator from './ShoppingCartIndicator';
 import ShoppingCartMenu from './ShoppingCartMenu';
 import UserIndicator from './UserIndicator';
 import UserMenu from './UserMenu';
+import Link from 'next/link';
 
 export default function Header() {
   return (
@@ -50,7 +51,9 @@ export default function Header() {
       </div>
       <div className='navbar-center'>
         <div className='flex-1'>
-          <a className='btn btn-ghost text-xl'>Simply Commerce</a>
+          <Link className='btn btn-ghost text-xl' href='/'>
+            Simply Commerce
+          </Link>
         </div>
       </div>
       <div className='navbar-end'>
