@@ -43,7 +43,7 @@ export default async function seedDB() {
       `,
     sql`
           INSERT INTO products (productID, name, brand, description, price)
-          VALUES (8. 'Product #8', 'Madelyn', 'It is another spectacular thing', 15.99);
+          VALUES (8, 'Product #8', 'Madelyn', 'It is another spectacular thing', 15.99);
       `,
     sql`
           INSERT INTO products (productID, name, brand, description, price)
