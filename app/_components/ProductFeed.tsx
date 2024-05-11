@@ -30,7 +30,7 @@ export default async function ProductFeed() {
     <div className='flex w-100 justify-center pt-10'>
       <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-9'>
         {products
-          .sort((a, b) => a.id - b.id)
+          .sort((a, b) => a.productID - b.productID)
           .map((product) => {
             return (
               <ProductCard key={product.id} product={product as Product} />
