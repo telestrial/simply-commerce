@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { sql } from '@vercel/postgres';
 
 import seedDB from '../lib/seedDB';
