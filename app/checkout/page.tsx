@@ -9,7 +9,7 @@ export default function Checkout() {
 
   return (
     <div className='flex flex-col w-100 justify-center align-middle pt-10'>
-      <div className='w-52'>
+      <div className='w-10'>
         <Link href='/' className='underline text-cyan-700'>
           Home
         </Link>
