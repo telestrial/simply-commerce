@@ -13,6 +13,11 @@ export default function Checkout() {
         <Link href='/' className='underline text-cyan-700'>
           Home
         </Link>
+        {shoppingCartItems.map((item) => (
+          <div key={item.id}>
+            {item.name}: {item.numberOfItems}
+          </div>
+        ))}
       </div>
     </div>
   );
