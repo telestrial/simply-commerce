@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 import { useShoppingCart } from '../_store';
+import CheckoutTable from '../_components/CheckoutTable';
 
 export default function Checkout() {
   const { push } = useRouter();
@@ -22,11 +23,7 @@ export default function Checkout() {
           Home
         </Link>
         <div className='pt-10'>
-          {shoppingCartItems.map((item) => (
-            <div key={item.id}>
-              {item.name}: {item.numberOfItems}
-            </div>
-          ))}
+          <CheckoutTable shoppingCartItems={shoppingCartItems} />
         </div>
       </div>
     </div>
