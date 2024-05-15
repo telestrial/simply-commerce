@@ -25,9 +25,11 @@ export default function ShoppingCartMenu() {
           </span>
           <span className='text-info'>Subtotal: ${shoppingCartTotal}</span>
           <div className='card-actions'>
-            <Link href='/checkout' className='btn btn-primary btn-block'>
-              View cart
-            </Link>
+            {totalNumberOfItems > 0 ? (
+              <Link href='/checkout' className='btn btn-primary btn-block'>
+                View cart
+              </Link>
+            ) : null}
           </div>
         </div>
       </div>

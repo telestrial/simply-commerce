@@ -1,11 +1,19 @@
 'use client';
 
+import { useEffect } from 'react';
+
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { useShoppingCart } from '../_store';
 
 export default function Checkout() {
+  const { push } = useRouter();
   const shoppingCartItems = useShoppingCart((state) => state.shoppingCart);
+
+  useEffect(() => {
+    if (!shoppingCartItems.length) push('/');
+  }, [push, shoppingCartItems]);
 
   return (
     <div className='flex justify-center pt-10'>
