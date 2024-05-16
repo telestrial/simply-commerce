@@ -29,6 +29,15 @@ export default function CheckoutTable(props: CheckoutTableProps) {
               </td>
             </tr>
           ))}
+          <tr>
+            <td></td>
+            <th>Subtotal</th>
+            <td>
+              {shoppingCartItems.reduce((prev, curr) => {
+                return prev + parseFloat(curr.price) * curr.numberOfItems;
+              }, 0)}
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
