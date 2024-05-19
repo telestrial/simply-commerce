@@ -15,21 +15,24 @@ export default function CheckoutTable(props: CheckoutTableProps) {
           <tr>
             <th>Quantity</th>
             <th>Product Name</th>
+            <th>Each</th>
             <th>Total</th>
           </tr>
         </thead>
         <tbody>
-          {shoppingCartItems.map((shoppingCartItem) => (
-            <tr key={shoppingCartItem.id}>
-              <td>{shoppingCartItem.numberOfItems}</td>
-              <td>{shoppingCartItem.name}</td>
-              <td>
-                {parseFloat(shoppingCartItem.price) *
-                  shoppingCartItem.numberOfItems}
-              </td>
-            </tr>
-          ))}
+          {shoppingCartItems.map((shoppingCartItem) => {
+            const { id, numberOfItems, name, price } = shoppingCartItem;
+            return (
+              <tr key={id}>
+                <td>{numberOfItems}</td>
+                <td>{name}</td>
+                <td>{price}</td>
+                <td>{parseFloat(price) * numberOfItems}</td>
+              </tr>
+            );
+          })}
           <tr>
+            <td></td>
             <td></td>
             <th>Subtotal</th>
             <td>
